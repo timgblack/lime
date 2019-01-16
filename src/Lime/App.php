@@ -813,6 +813,30 @@ class App implements \ArrayAccess {
     }
 
     /**
+    * Bind PUT request to route
+    * @param  String  $path
+    * @param  \Closure  $callback
+    * @param  Boolean $condition
+    * @return void
+    */
+    public function put($path, $callback, $condition = true){
+        if (!$this->req_is("put")) return;
+        $this->bind($path, $callback, $condition);
+    }
+
+    /**
+    * Bind DELETE request to route
+    * @param  String  $path
+    * @param  \Closure  $callback
+    * @param  Boolean $condition
+    * @return void
+    */
+    public function delete($path, $callback, $condition = true){
+        if (!$this->req_is("delete")) return;
+        $this->bind($path, $callback, $condition);
+    }
+
+    /**
     * Bind Class to routes
     * @param  String $class
     * @return void
